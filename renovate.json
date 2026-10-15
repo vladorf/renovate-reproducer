@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": false,
+  "packageRules": [
+    {
+      "matchPackageNames": ["requests"],
+      "constraints": {"python": "==3.14.*"},
+      "postUpgradeTasks": {
+        "commands": ["python --version > branch.txt"],
+        "installTools": {"python": {}},
+        "fileFilters": ["branch.txt"],
+        "executionMode": "branch"
+      }
+    },
+    {
+      "matchPackageNames": ["idna"],
+      "constraints": {"python": "==3.14.*"},
+      "postUpgradeTasks": {
+        "commands": ["python --version > update.txt"],
+        "installTools": {"python": {}},
+        "fileFilters": ["update.txt"],
+        "executionMode": "update"
+      }
+    }
+  ]
+}
